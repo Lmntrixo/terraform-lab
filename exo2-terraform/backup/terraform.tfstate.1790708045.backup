@@ -1,0 +1,704 @@
+{
+  "version": 4,
+  "terraform_version": "1.16.3",
+  "serial": 29,
+  "lineage": "6faca575-67ee-1d00-853e-8a2b2b59dd9e",
+  "outputs": {
+    "accout_id": {
+      "value": "875691018539",
+      "type": "string"
+    },
+    "critical_bucket_id": {
+      "value": "my-terraform-lab-evans3023-critical",
+      "type": "string"
+    },
+    "current_region": {
+      "value": "eu-central-1",
+      "type": "string"
+    },
+    "latest_amazon_linux": {
+      "value": "ami-04aee712409d9faac",
+      "type": "string"
+    },
+    "lecon1_arn": {
+      "value": "arn:aws:s3:::my-terraform-lab-evans3023-lecon1",
+      "type": "string"
+    },
+    "lecon1_bucket_id": {
+      "value": "my-terraform-lab-evans3023-lecon1",
+      "type": "string"
+    },
+    "lecon2_object_url": {
+      "value": "s3://my-terraform-lab-evans3023-lecon2/hello.txt",
+      "type": "string"
+    },
+    "multi_bucket_id": {
+      "value": [
+        "my-terraform-lab-evans3023-multi-0",
+        "my-terraform-lab-evans3023-multi-1",
+        "my-terraform-lab-evans3023-multi-2"
+      ],
+      "type": [
+        "tuple",
+        [
+          "string",
+          "string",
+          "string"
+        ]
+      ]
+    },
+    "nommes_bucket_id": {
+      "value": {
+        "data": "my-terraform-lab-evans3023-data",
+        "logs": "my-terraform-lab-evans3023-logs"
+      },
+      "type": [
+        "object",
+        {
+          "data": "string",
+          "logs": "string"
+        }
+      ]
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_caller_identity",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "account_id": "875691018539",
+            "arn": "arn:aws:iam::875691018539:user/terraform-user",
+            "id": "875691018539",
+            "user_id": "AIDA4XY2AREV77WYV3CYY"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_region",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "Europe (Frankfurt)",
+            "endpoint": "ec2.eu-central-1.amazonaws.com",
+            "id": "eu-central-1",
+            "name": "eu-central-1"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_ssm_parameter",
+      "name": "amazon_linux_ami",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ssm:eu-central-1::parameter/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64",
+            "id": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64",
+            "insecure_value": "ami-04aee712409d9faac",
+            "name": "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64",
+            "type": "String",
+            "value": "ami-04aee712409d9faac",
+            "version": 190,
+            "with_decryption": true
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "value"
+              }
+            ]
+          ],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "lecon1_renammed",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-lecon1",
+            "bucket": "my-terraform-lab-evans3023-lecon1",
+            "bucket_domain_name": "my-terraform-lab-evans3023-lecon1.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "my-terraform-lab-evans3023-lecon1.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "83784894da38ec6e541529489dd3e6cb1d71391a20b0168c5a240d7329fa95e9",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "my-terraform-lab-evans3023-lecon1",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "lecon2",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-lecon2",
+            "bucket": "my-terraform-lab-evans3023-lecon2",
+            "bucket_domain_name": "my-terraform-lab-evans3023-lecon2.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "my-terraform-lab-evans3023-lecon2.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "83784894da38ec6e541529489dd3e6cb1d71391a20b0168c5a240d7329fa95e9",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "my-terraform-lab-evans3023-lecon2",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "multi",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-multi-0",
+            "bucket": "my-terraform-lab-evans3023-multi-0",
+            "bucket_domain_name": "my-terraform-lab-evans3023-multi-0.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "my-terraform-lab-evans3023-multi-0.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "83784894da38ec6e541529489dd3e6cb1d71391a20b0168c5a240d7329fa95e9",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "my-terraform-lab-evans3023-multi-0",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-multi-1",
+            "bucket": "my-terraform-lab-evans3023-multi-1",
+            "bucket_domain_name": "my-terraform-lab-evans3023-multi-1.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "my-terraform-lab-evans3023-multi-1.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "83784894da38ec6e541529489dd3e6cb1d71391a20b0168c5a240d7329fa95e9",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "my-terraform-lab-evans3023-multi-1",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        },
+        {
+          "index_key": 2,
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-multi-2",
+            "bucket": "my-terraform-lab-evans3023-multi-2",
+            "bucket_domain_name": "my-terraform-lab-evans3023-multi-2.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "my-terraform-lab-evans3023-multi-2.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "83784894da38ec6e541529489dd3e6cb1d71391a20b0168c5a240d7329fa95e9",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "my-terraform-lab-evans3023-multi-2",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {},
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "nommes",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": "data",
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-data",
+            "bucket": "my-terraform-lab-evans3023-data",
+            "bucket_domain_name": "my-terraform-lab-evans3023-data.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "my-terraform-lab-evans3023-data.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "83784894da38ec6e541529489dd3e6cb1d71391a20b0168c5a240d7329fa95e9",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "my-terraform-lab-evans3023-data",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "purpose": "for data"
+            },
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab",
+              "purpose": "for data"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        },
+        {
+          "index_key": "logs",
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-logs",
+            "bucket": "my-terraform-lab-evans3023-logs",
+            "bucket_domain_name": "my-terraform-lab-evans3023-logs.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "my-terraform-lab-evans3023-logs.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": false,
+            "grant": [
+              {
+                "id": "83784894da38ec6e541529489dd3e6cb1d71391a20b0168c5a240d7329fa95e9",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "my-terraform-lab-evans3023-logs",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "",
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "purpose": "logs of aplication"
+            },
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab",
+              "purpose": "logs of aplication"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_object",
+      "name": "lecon2",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acl": null,
+            "arn": "arn:aws:s3:::my-terraform-lab-evans3023-lecon2/hello.txt",
+            "bucket": "my-terraform-lab-evans3023-lecon2",
+            "bucket_key_enabled": false,
+            "cache_control": "",
+            "checksum_algorithm": null,
+            "checksum_crc32": "",
+            "checksum_crc32c": "",
+            "checksum_crc64nvme": "",
+            "checksum_sha1": "",
+            "checksum_sha256": "",
+            "content": "hello terraform from lecon2",
+            "content_base64": null,
+            "content_disposition": "",
+            "content_encoding": "",
+            "content_language": "",
+            "content_type": "application/octet-stream",
+            "etag": "f3e12ea12583b860fe659da6d18defd0",
+            "force_destroy": false,
+            "id": "hello.txt",
+            "key": "hello.txt",
+            "kms_key_id": null,
+            "metadata": {},
+            "object_lock_legal_hold_status": "",
+            "object_lock_mode": "",
+            "object_lock_retain_until_date": "",
+            "override_provider": [],
+            "server_side_encryption": "AES256",
+            "source": null,
+            "source_hash": null,
+            "storage_class": "STANDARD",
+            "tags": {},
+            "tags_all": {
+              "ManagedBy": "terraform",
+              "project": "terraform-lab"
+            },
+            "version_id": "",
+            "website_redirect": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_s3_bucket.lecon2"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
